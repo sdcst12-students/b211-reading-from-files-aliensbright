@@ -6,9 +6,17 @@ The triples contained are : { 2a : 6, 2b: 4, 2c: 11}
 """
 import math
 
-filename = 'task02a.txt'
-file = open(filename,'r')
-data = file.read()
+filename2a = 'task02a.txt'
+file2a = open(filename2a,'r')
+data2a = file2a.read()
+
+filename2b = 'task02b.txt'
+file2b = open(filename2b,'r')
+data2b = file2b.read()
+
+filename2c = 'task02c.txt'
+file2c = open(filename2c,'r')
+data2c = file2c.read()
 
 
 def sortFile(file):
@@ -16,7 +24,7 @@ def sortFile(file):
     Mylist = list(filter(None,Mylist))
     return Mylist
 
-def SortTriples(list):
+def sortTriples(list):
     SortedList = []
     print(list)
     a = int(len(list)/3)
@@ -34,32 +42,35 @@ def checkTriples(listinlist):
         x = max(a,b,c)
         if x==a:
             try:
-                assert a == (b^2 + c^2)^0.5
+                assert a == (b**2 + c**2)**0.5
                 numoftriples = numoftriples + 1
             except:
                 pass
         elif x==b:
             try:
-                assert b == (a^2 + c^2)^0.5
+                assert b == (a**2 + c**2)**0.5
                 numoftriples= numoftriples + 1
             except:
                 pass
         elif x==c:
             try:
-                assert c == (b^2 + a^2)^0.5
+                assert c == (b**2 + a**2)**0.5
                 numoftriples = numoftriples + 1
             except:
                 pass
     return(numoftriples)
 
 
-        
+list2a = sortFile(data2a)
+triples2a = sortTriples(list2a)
+numTrip2a = checkTriples(triples2a)
 
+list2b = sortFile(data2b)
+triples2b = sortTriples(list2b)
+numTrip2b = checkTriples(triples2b)
 
-AllVals = sortFile(data)
+list2c = sortFile(data2c)
+triples2c = sortTriples(list2c)
+numTrip2c = checkTriples(triples2c)
 
-hi = SortTriples(AllVals)
-
-hello = checkTriples(hi)
-
-print(hello)
+print(f"The triples contained are [2a ; {numTrip2a}, 2b ; {numTrip2b}, 2c ; {numTrip2c}]")
