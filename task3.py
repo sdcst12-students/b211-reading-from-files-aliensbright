@@ -18,36 +18,30 @@ global indexofspaces
 indexofspaces = []
 
 def listsofvals(file): #def find_positions(lst, value): return [index for index, element in enumerate(lst) if element == value]
-    Mylist=file.split('\n')
     count = -1
-    for i in Mylist:
+    for i in file:
         count+=1
         if i =='':
             indexofspaces.append(count)
-    print("index of spaces",indexofspaces)
     return indexofspaces
     
 
 
 def sumofvals(list,val1,val2):
-    print(list)
-    print('val1=',val1,'val2',val2)
-    newlist=list[val1:val2]
-    print('newlist',newlist)
+    newlist=list[val1+1:val2]
     sum=0
     for i in newlist:
-        sum=i+sum
-    print("sum=",sum)
+        a=int(i)
+        sum=a+sum
     return sum
 
 
-
+data3=data3.split('\n')
 sorted3 = listsofvals(data3)
 
-for num in range(len(sorted3)):
+for num in range(len(sorted3)-1):
     n = sumofvals(data3,sorted3[num],sorted3[num+1])
     listofsums.append(n)
-    #print(listofsums)
 
 maxSum = max(listofsums)
 
